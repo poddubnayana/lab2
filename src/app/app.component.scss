@@ -1,0 +1,27 @@
+:host {
+
+  .b1 {
+    font-size: 10px;
+    margin-left: 1px;
+    margin-top: 10px;
+    margin-bottom: 15px
+  }
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 50%;
+  }
+  .mdc-fab {
+    height: 37px;
+    width: 37px;
+  }
+  .style-title {
+    text-align: center;
+    font-weight: bold;
+  }
+  .style-elem {
+    text-align: center;
+  }
+
+}

@@ -1,0 +1,99 @@
+
+  <h1 mat-dialog-title>
+    Введите следующие данные
+  </h1>
+
+<form [formGroup]="gasForm">
+  <div mat-dialog-content class="content">
+    <mat-form-field appearance="outline">
+      <mat-label>
+        ФИО
+      </mat-label>
+      <input matInput
+             formControlName="name"  
+             type="text" 
+             placeholder="Иванов Иван Иванович" 
+             pattern="[А-Яа-я\s]+">
+    </mat-form-field>
+
+  
+  <mat-form-field appearance="outline">
+    <mat-label>
+      Дата
+    </mat-label>
+    <input matInput
+           formControlName="date"  
+           [matDatepicker]="picker" 
+           [max]="today" 
+           placeholder="Введите дату">
+    <mat-hint>
+      YYYY.MM.DD
+    </mat-hint>
+    <mat-datepicker-toggle [for]="picker"
+                           matIconSuffix
+                           disabled="false"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker
+    ></mat-datepicker>
+  </mat-form-field>
+
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>
+      Вид топлива
+    </mat-label>
+    <mat-select formControlName="variety">
+      <mat-option *ngFor="let val of fuel" [value]="val">
+        {{ val }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>
+      Объем
+    </mat-label>
+    <input matInput 
+           formControlName="size" 
+           placeholder="10" 
+           type="number">
+    <mat-hint>
+      В литрах
+    </mat-hint>
+  </mat-form-field>
+
+
+  <mat-checkbox formControlName="isFull">
+    Полный бак
+  </mat-checkbox>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>
+      Цена за литр
+    </mat-label>
+    <input matInput 
+           formControlName="price" 
+           mask="00"
+           placeholder="XX руб" 
+           type="text" 
+           suffix=" руб" />
+  </mat-form-field>
+  </div>
+</form>
+
+<div mat-dialog-actions 
+  class="action">
+  <button (click)="closeDialog()"
+                   mat-raised-button>Отменить</button>
+  <button [disabled]="!gasForm.valid" 
+          (click)="save()" 
+          mat-raised-button 
+          color="primary">Сохранить</button>
+</div>
+
+
+
+
