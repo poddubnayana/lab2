@@ -1,7 +1,7 @@
 import { Component, DestroyRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './entities/components/dialog/dialog.component';
-import {IGas} from './entities/interfaces/app.interface';
+import { IGas } from './entities/interfaces/app.interface';
 import { MatTable } from '@angular/material/table';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
